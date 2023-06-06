@@ -1,0 +1,261 @@
+:root {
+  --dark-gray: #262626;
+  --light-gray: #292c22;
+  --gray: #705cf2;
+  --turquoise: #3bbf8f;
+  --yellow: #705cf2;
+  --orange: #d96055;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  list-style: none;
+  font-family: "Courier New", Courier, monospace;
+  border: none;
+  color: white;
+}
+
+html,
+body {
+  height: 100%;
+  background: linear-gradient(
+    45deg,
+    rgba(68, 55, 153, 1) 0%,
+    rgba(112, 92, 242, 1) 35%,
+    rgba(59, 191, 143, 1) 100%
+  );
+}
+
+body {
+  padding: 90px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 80px);
+  grid-template-rows: 50px repeat(3, 80px) 60px;
+  gap: 10px;
+}
+
+@media (min-width: 768px) {
+  .grid {
+    width: 490px;
+    grid-template-columns: repeat(3, 150px);
+    grid-template-rows: 50px repeat(3, 150px) 60px;
+    gap: 20px;
+  }
+}
+
+/* Shared utility classes */
+.hidden {
+  display: none !important;
+}
+
+.turquoise {
+  background-color: var(--turquoise);
+}
+.turquoise-color {
+  color: var(--turquoise);
+}
+
+.light-grey {
+  background-color: var(--orange);
+}
+.yellow {
+  background-color: var(--yellow);
+}
+
+.yellow-color {
+  color: var(--yellow);
+}
+
+.white-color {
+  color: white;
+}
+
+.shadow {
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+.border {
+  border: 1px solid rgba(211, 211, 211, 0.4) !important;
+}
+
+.turn {
+  align-self: center;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+@keyframes turn-text-animation {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+
+  100% {
+    opacity: 100%;
+    transform: translateX(0);
+  }
+}
+.turn p {
+  font-size: 14px;
+  animation: 0.6s ease-in-out turn-text-animation;
+}
+
+@keyframes turn-icon-animation {
+  0% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.4);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.turn span {
+  font-size: 1.8rem;
+  margin-left: 10px;
+  color: var(--yellow);
+  animation: 0.6s ease-in-out turn-icon-animation;
+}
+
+/* Menu styles */
+.menu {
+  position: relative;
+}
+
+.menu-btn {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 10px;
+  color: white;
+  background-color: var(--gray);
+  border: 1px solid transparent;
+}
+
+.menu-btn span {
+  transform: rotate(-90deg);
+  display: inline-block;
+  vertical-align: middle;
+  margin-bottom: -7px;
+}
+
+.items {
+  position: absolute;
+  z-index: 10;
+  top: 60px;
+  right: 0;
+  background-color: #d96055;
+  border-radius: 2px;
+  padding: 10px;
+}
+
+.items button {
+  background-color: transparent;
+  padding: 8px;
+  color: white;
+}
+
+.items button:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.square {
+  background-color: var(--gray);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+}
+
+.square:hover {
+  cursor: pointer;
+  background-color: #d96055;
+}
+
+.used-square {
+  background-color: white;
+}
+
+.score {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.score p {
+  font-size: 14px;
+}
+
+.score span {
+  font-size: 12px;
+  margin-top: 2px;
+}
+
+.actions {
+  background-color: white;
+}
+
+/* Footer styles */
+footer {
+  color: white;
+  margin-top: 50px;
+}
+
+footer p {
+  margin-top: 10px;
+  text-align: center;
+}
+
+/* Modal styles - opens when game finishes  */
+.modal {
+  display: flex;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.modal-contents {
+  transform: translateY(-10px);
+  height: 150px;
+  width: 100%;
+  max-width: 300px;
+  background-color: var(--gray);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  color: white;
+  margin: 10px;
+}
+
+.modal-contents button {
+  padding: 10px;
+  background-color: var(--turquoise);
+  border-radius: 3px;
+}
